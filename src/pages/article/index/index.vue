@@ -5,7 +5,6 @@
       <el-col :span="6" v-for="(articles) in this.pageList.resList" :key="articles.resList" :offset="2" @click.native="detailClick(articles)">
         <div class="article" >
           <el-card  :body-style="{ padding: '20px' }">
-            <!-- <img src="@/static/logo2.png" class="image"> -->
             <div style="padding: 14px;">
               <span>{{articles.title}}</span>
               <div class="bottom clearfix">

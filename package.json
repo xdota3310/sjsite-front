@@ -1,5 +1,5 @@
 {
-  "name": "site-front",
+  "name": "sjsite-front",
   "version": "1.0.0",
   "description": "site front",
   "author": "xsj1012@foxmail.com",
@@ -11,10 +11,6 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "element-ui": "^2.8.2",
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
     "wangeditor": "^3.1.1"
   },
   "devDependencies": {

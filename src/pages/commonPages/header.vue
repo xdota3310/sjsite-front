@@ -2,7 +2,7 @@
   <el-card class="box-card" >
     <el-row class="row">
       <el-col :span='6' :offset="5">
-        <img src="static/github.png" style="vertical-align: middle;" @click="indexPage()">
+        <img src="@/assets/github.png" style="vertical-align: middle;" @click="indexPage()">
       </el-col>
       <el-col :span='1' :offset="6" class="content">
         <el-button type="text" @click="listClick()">归档</el-button>
@@ -14,7 +14,7 @@
         <el-button type="text" @click="aboutClick()">关于</el-button>
       </el-col>
       <el-col :span="3" :offset="1" class="content">
-        <img src="static/github.png" style="vertical-align: middle;" @click="loginPage()">
+        <img src="@/assets/github.png" style="vertical-align: middle;" @click="loginPage()">
       </el-col>
     </el-row>
   </el-card>
@@ -37,10 +37,10 @@ export default {
       })
     },
     indexPage () {
-      this.$router.push({name: 'index'})
+      // this.$router.push({name: 'index'})
     },
     loginPage () {
-      this.$router.push({name: 'login'})
+      // this.$router.push({name: 'login'})
     },
     linkClick () {
 

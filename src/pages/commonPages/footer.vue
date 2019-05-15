@@ -3,7 +3,7 @@
   <el-card class="box-card">
     <el-row>
       <el-col :span='6' :offset="5">
-        <img src="static/github.png" style="vertical-align: middle;">
+        <img src="@/assets/github.png" style="vertical-align: middle;">
         <span style="font-size:10px">&nbsp;&nbsp;Copyright©2018 - {{this.year}} sjblog All Rights Reserved</span>
       </el-col>
       <el-col :span='4' :offset="6">
