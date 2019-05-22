@@ -4,11 +4,13 @@ import vue from 'vue'
 
 const request = (url, body, type = 'get', isJson = false) => {
   const query = {
-    url: 'http://47.101.35.22/sjblog' + url,
+    url: 'http://www.sjsite.com:8080/sjblog' + url,
     method: type,
     timeout: 30000,
+    withCredentials: true,
     headers: {
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': 'http://www.sjsite.com',
+      'Access-Control-Allow-Credentials': true,
       'Request-Ajax': true
     }
   }

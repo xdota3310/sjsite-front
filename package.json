@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "vue-cookies": "^1.5.13",
     "wangeditor": "^3.1.1"
   },
   "devDependencies": {
