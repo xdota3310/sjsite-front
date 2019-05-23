@@ -17,3 +17,13 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+router.beforeEach((to, from, next) => {
+  if (this.$cookies.isKey('sjsite_token')) { // determine if there has token
+    /* has token */
+    console.log(this.$cookies.get('sjsite_token'))
+    next()
+  } else {
+    /* has no token */
+  }
+})
