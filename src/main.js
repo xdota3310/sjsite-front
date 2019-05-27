@@ -4,7 +4,6 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueCookies from 'vue-cookies'
-import Cookies from 'js-cookie'
 
 Vue.use(VueCookies)
 
@@ -29,8 +28,7 @@ router.beforeEach((to, from, next) => {
     this.$alert('这是一段内容', '标题名称', {
       confirmButtonText: '确定',
       callback: action => {
-        
       }
-    });
+    })
   }
 })
