@@ -11,6 +11,11 @@ export default {
 </script>
 
 <style>
+template{
+  background-image:url('./assets/loginBackgroud.jpg');
+  background-repeat:no-repeat;
+  background-attachment:fixed
+}
 .container{
   position: relative;
   margin: 0 auto;

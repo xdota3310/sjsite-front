@@ -4,8 +4,8 @@ import vue from 'vue'
 
 const request = (url, body, type = 'get', isJson = false) => {
   const query = {
-    // url: 'http://www.sjsite.com:8081/sjblog' + url,
-    url: 'http://47.101.35.22:8080/sjblog' + url,
+    url: 'http://www.sjsite.com:8081/sjblog' + url,
+    // url: 'http://47.101.35.22:8080/sjblog' + url,
     method: type,
     timeout: 30000,
     withCredentials: true,

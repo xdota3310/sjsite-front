@@ -7,10 +7,9 @@
       <el-form-item label="文章类型：">
         <el-select v-model="article.type" placeholder="请选择">
           <el-option
-            v-for="item in types"
+            v-for="item in this.Global.article_types"
             :key="item.value"
             :label="item.label"
-            :value="item.value"
           ></el-option>
         </el-select>
       </el-form-item>
@@ -36,18 +35,6 @@ export default {
         content: ''
       },
       types: [
-        {
-          value: '1',
-          label: '技术'
-        },
-        {
-          value: '2',
-          label: '游戏'
-        },
-        {
-          value: '3',
-          label: '生活'
-        }
       ]
     }
   },
@@ -56,7 +43,6 @@ export default {
       this.article.content = value // 在这里接受子组件传过来的参数，赋值给data里的参数
     },
     save () {
-      console.log(this.article)
       articleApi.create(this.article).then(re => {
         console.log(re)
       })

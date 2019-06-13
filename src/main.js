@@ -4,11 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueCookies from 'vue-cookies'
+import global from '@/common/global.vue'
 
 Vue.use(VueCookies)
 
 Vue.config.productionTip = false
 Vue.prototype.$ELEMENT = {size: 'small'}
+Vue.prototype.Global = global
 
 /* eslint-disable no-new */
 new Vue({
