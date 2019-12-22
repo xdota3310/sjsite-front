@@ -8,17 +8,17 @@
               <article v-for='article in articles.lists' :key='article'>
                 <header>
                   <div>
-                    <router-link :to="{ name: 'detail', query: article.aid }" class="home_title">
+                    <router-link :to="{ name: 'detail', query: article.articleId }" class="home_title">
                       {{article.title}}
                     </router-link>
                   </div>
                   <div>
-                  <p class="home_creatAt" >{{article.createTime}}</p>
+                  <p class="home_creatAt" >创建时间：{{article.createTime}}</p>
                   </div>
                 </header>
                   <section v-html="article.excerpt" class="home_main"></section>
                 <footer>
-                  <!-- <router-link class="home_readMore" :to="{path:`/article/${item._id}`}">阅读全文>></router-link> -->
+                  <router-link :to="{ name: 'detail', query: {id: article.articleId} }" class="home_readMore" >阅读全文</router-link>
                 </footer>
               </article>
             </el-col>
@@ -113,20 +113,20 @@ h4 {
 }
 .home_title {
   display: block;
-  font-size: 2.6rem;
+  font-size: 1.6rem;
   font-weight: 400;
   color: #404040;
   padding: 0.8rem 0;
 }
 .home_creatAt {
   font-family: "Comic Sans MS", curslve, sans-serif;
-  font-size: 1.6rem;
+  font-size: 0.6rem;
   color: #7f8c8d;
   margin: 0;
 }
 .home_main {
-  font-size: 1.6rem;
-  color: #34495e;
+  font-size: 1rem;
+  color: #070707;
   line-height: 1.6em;
   /*padding:0.6rem 0;*/
 }
@@ -134,7 +134,7 @@ footer {
   text-align: right;
 }
 .home_readMore {
-  font-size: 2rem;
+  font-size: 1rem;
   color: #919191;
   font-weight: 600;
 }
