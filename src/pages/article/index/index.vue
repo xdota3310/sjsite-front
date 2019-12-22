@@ -14,7 +14,7 @@
               <span></span>
             </div>
             <div v-for='type in this.Global.article_types' :key='type' class='text item'>
-              <el-collapse v-model='typeValue' @change="handleChange" accordion>
+              <el-collapse v-model='typeValue' @change="handleChange">
                 <el-collapse-item :title='type.label' :name='type.value' style="font-size: 20px">
                   <div v-for='(article) in articles.resList' :key='article'>
                     <span @click="detailClick(article)" style="font-size:12px;cursor:pointer">{{article.title}}</span>
@@ -48,11 +48,11 @@ import { articleApi } from '@/api/api.js'
 export default {
   data () {
     return {
-      typeValue: '1',
+      typeValue: [1],
       articles: {
       },
       pageQuery: {
-        type: 0,
+        // type: [],
         pageNum: 1,
         pageSize: 5
       },
@@ -64,8 +64,8 @@ export default {
   },
   methods: {
     async handleChange () {
-      await this.$set(this.pageQuery, 'type', this.typeValue)
-      this.currentType = this.typeValue
+      // await this.$set(this.pageQuery, 'type', this.typeValue)
+      // this.currentType = this.typeValue
       await this.initArticles()
     },
     handleCurrentChange (num) {
