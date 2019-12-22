@@ -27,10 +27,11 @@ router.beforeEach((to, from, next) => {
     next()
   } else {
     /* has no token */
-    this.$alert('这是一段内容', '标题名称', {
-      confirmButtonText: '确定',
-      callback: action => {
-      }
-    })
+    // this.$alert('这是一段内容', '标题名称', {
+    //   confirmButtonText: '确定',
+    //   callback: action => {
+    //   }
+    // })
+    next()
   }
 })

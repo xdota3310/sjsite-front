@@ -1,6 +1,7 @@
 <template>
   <el-row>
-    <el-col :span="12" :offset="6">
+    <el-col :span="12"
+            :offset="6">
       <h1>{{detail.title}}</h1>
       <span class="time">最后修改时间：{{detail.modifyTime}}</span>
       <div v-html='detail.content'></div>
@@ -19,8 +20,14 @@ export default {
     }
   },
   mounted () {
-    this.article = this.$router.currentRoute.query
-    articleApi.getArticle(this.article.id).then(re => {
+    // this.article = this.$router.currentRoute.query
+    // console.log(this.article)
+    // articleApi.getArticle(this.article.id).then(re => {
+    //   this.detail = re.data
+    // })
+    this.article = this.$route.params
+    console.log(this.article)
+    articleApi.getArticle(this.article.aid).then(re => {
       this.detail = re.data
     })
   }
@@ -30,6 +37,6 @@ export default {
 <style scoped>
 .time {
   font-size: 10px;
-  color: #C2C2C2;
+  color: #c2c2c2;
 }
 </style>

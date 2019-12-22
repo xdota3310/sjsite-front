@@ -22,7 +22,7 @@ export default new Router({
           component: index
         },
         {
-          path: '/detail',
+          path: '/detail/:aid' + '.html',
           name: 'detail',
           component: detail
         },

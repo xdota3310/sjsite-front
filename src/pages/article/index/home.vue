@@ -8,7 +8,7 @@
               <article v-for='article in articles.lists' :key='article'>
                 <header>
                   <div>
-                    <router-link :to="{ name: 'detail', query: article.articleId }" class="home_title">
+                    <router-link :to="'/detail/' + article.articleId + '.html'" class="home_title">
                       {{article.title}}
                     </router-link>
                   </div>
@@ -18,16 +18,17 @@
                 </header>
                   <section v-html="article.excerpt" class="home_main"></section>
                 <footer>
-                  <router-link :to="{ name: 'detail', query: {id: article.articleId} }" class="home_readMore" >阅读全文</router-link>
+                  <!-- <router-link :to="{ name: 'detail', query: {id: article.articleId} }" class="home_readMore" >阅读全文</router-link> -->
+                  <router-link :to="'/detail/' + article.articleId + '.html'" class="home_readMore" >阅读全文</router-link>
                 </footer>
               </article>
+              <footer class='loadMore' v-if='loadMoreShow'><span type="primary" :loading="loadMoreFlag" @click='loadMore'>{{loadMoreText}}</span>
+              </footer>
             </el-col>
             <el-col :span="6" >
             </el-col>
         </el-row>
 
-      <footer class='loadMore' v-if='loadMoreShow'><el-button type="primary" :loading="loadMoreFlag" @click='loadMore'>{{loadMoreText}}</el-button>
-      </footer>
     </div>
 </template>
 
@@ -40,7 +41,7 @@ export default {
       loading2: false,
       loadMoreFlag: false,
       loadMoreText: '加载更多',
-      loadMoreShow: false,
+      loadMoreShow: true,
       typeValue: '1',
       articles: {
         lists: {},
@@ -57,6 +58,9 @@ export default {
     this.homeInit()
   },
   methods: {
+    handleCurrentChange (val) {
+      this.initArticles()
+    },
     homeInit () {
       this.initArticles()
     },
@@ -64,7 +68,6 @@ export default {
       articleApi.init(this.pageQuery).then(re => {
         this.$set(this.articles, 'lists', re.data.resList)
         this.$set(this.articles, 'sum', re.data.sum)
-        debugger
       })
     },
     loadMore () {
@@ -101,6 +104,9 @@ export default {
 h2,
 h4 {
   margin: 0;
+}
+.pagination {
+  padding-bottom: 1rem;
 }
 .home_wrapper {
   margin: auto;
@@ -139,7 +145,9 @@ footer {
   font-weight: 600;
 }
 .loadMore {
-  margin: 4rem 0 0 0;
+  text-align: center;
+  padding-bottom: 1rem;
+  /* margin: 0 4rem 0 0; */
   display: flex;
   display: webkit-flex;
 }
