@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import index from '@/pages/article/index/index.vue'
+import home from '@/pages/article/index/home.vue'
 import detail from '@/pages/article/detail'
 import edit from '@/pages/article/edit'
 import commonpage from '@/pages/commonPages/commonpage.vue'
@@ -13,7 +14,7 @@ export default new Router({
     {
       path: '/',
       component: commonpage,
-      redirect: '/index',
+      redirect: '/home',
       children: [
         {
           path: '/index',
@@ -29,6 +30,11 @@ export default new Router({
           path: '/edit',
           name: 'edit',
           component: edit
+        },
+        {
+          path: '/home',
+          name: 'home',
+          component: home
         }
       ]
     }

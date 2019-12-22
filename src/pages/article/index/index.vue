@@ -1,30 +1,35 @@
 <template>
-  <div class='main'>
-    <el-row class='indexview'>
-      <el-col :span='19' :offset='5' class='content'>
+  <div class="main">
+    <el-row class="indexview">
+      <el-col :span="4">
+      </el-col>
+      <el-col :span="16"
+              class="content">
+
         <!-- <el-col
           :span='6'
           v-for='(articles) in this.pageList.resList'
           :key='articles.resList'
           :offset='2'
           @click.native='detailClick(articles)'
-        > -->
-          <el-card class='box-card'>
-            <div slot='header' class='clearfix'>
-              <span></span>
-            </div>
-            <div v-for='type in this.Global.article_types' :key='type' class='text item'>
-              <el-collapse v-model='typeValue' @change="handleChange">
-                <el-collapse-item :title='type.label' :name='type.value' style="font-size: 20px">
-                  <div v-for='(article) in articles.resList' :key='article'>
-                    <span @click="detailClick(article)" style="font-size:12px;cursor:pointer">{{article.title}}</span>
-                    <el-divider content-position="left"></el-divider>
-                  </div>
-                  <el-button type="text">更多....</el-button>
-                </el-collapse-item>
-              </el-collapse>
-            </div>
-          </el-card>
+        >-->
+
+        <!-- <div v-for="type in this.Global.article_types" :key="type" class="text item">
+          <el-collapse v-model="typeValue" @change="handleChange" accordion>
+            <el-collapse-item :title="type.label" :name="type.value" style="font-size: 20px">
+              <div v-for="(article) in articles.resList" :key="article">
+                <span
+                  @click="detailClick(article)"
+                  style="font-size:12px;cursor:pointer"
+                >{{article.title}}</span>
+                <el-divider content-position="left"></el-divider>
+              </div>
+              <el-button type="text">更多....</el-button>
+            </el-collapse-item>
+          </el-collapse>
+        </div> -->
+      </el-col>
+      <el-col :span="4">
       </el-col>
     </el-row>
 
@@ -39,7 +44,7 @@
           :total='this.pageList.sum'
         ></el-pagination>
       </div>
-    </el-col> -->
+    </el-col>-->
   </div>
 </template>
 
@@ -48,11 +53,10 @@ import { articleApi } from '@/api/api.js'
 export default {
   data () {
     return {
-      typeValue: [1],
-      articles: {
-      },
+      typeValue: '1',
+      articles: {},
       pageQuery: {
-        // type: [],
+        type: 0,
         pageNum: 1,
         pageSize: 5
       },
@@ -64,8 +68,8 @@ export default {
   },
   methods: {
     async handleChange () {
-      // await this.$set(this.pageQuery, 'type', this.typeValue)
-      // this.currentType = this.typeValue
+      await this.$set(this.pageQuery, 'type', this.typeValue)
+      this.currentType = this.typeValue
       await this.initArticles()
     },
     handleCurrentChange (num) {
@@ -111,8 +115,8 @@ export default {
 </style>
 
 <style>
-.el-collapse-item__header{
-  color:black !important;
+.el-collapse-item__header {
+  color: black !important;
   font-size: 20px;
 }
 </style>
