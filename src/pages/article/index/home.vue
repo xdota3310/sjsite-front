@@ -8,7 +8,8 @@
               <article v-for='article in articles.lists' :key='article'>
                 <header>
                   <div>
-                    <router-link :to="'/detail/' + article.articleId + '.html'" class="home_title">
+                    <!-- <router-link :to="'/detail/' + article.path + '.html'" class="home_title"> -->
+                    <router-link :to="'/article/' + article.path" class="home_title">
                       {{article.title}}
                     </router-link>
                   </div>
@@ -19,7 +20,7 @@
                   <section v-html="article.excerpt" class="home_main"></section>
                 <footer>
                   <!-- <router-link :to="{ name: 'detail', query: {id: article.articleId} }" class="home_readMore" >阅读全文</router-link> -->
-                  <router-link :to="'/detail/' + article.articleId + '.html'" class="home_readMore" >阅读全文</router-link>
+                  <router-link :to="'/article/' + article.path" class="home_readMore" >阅读全文</router-link>
                 </footer>
               </article>
               <footer class='loadMore' v-if='loadMoreShow'><span type="primary" :loading="loadMoreFlag" @click='loadMore'>{{loadMoreText}}</span>

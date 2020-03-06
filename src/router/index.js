@@ -10,11 +10,12 @@ import commonpage from '@/pages/commonPages/commonpage.vue'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history', // 去掉url中的#
   routes: [
     {
       path: '/',
       component: commonpage,
-      redirect: '/home',
+      redirect: '/',
       children: [
         {
           path: '/index',
@@ -22,8 +23,9 @@ export default new Router({
           component: index
         },
         {
-          path: '/detail/:aid' + '.html',
-          name: 'detail',
+          // path: '/detail/:path' + '.html',
+          path: '/article/:path',
+          name: 'article',
           component: detail
         },
         {
@@ -32,7 +34,7 @@ export default new Router({
           component: edit
         },
         {
-          path: '/home',
+          path: '/',
           name: 'home',
           component: home
         }

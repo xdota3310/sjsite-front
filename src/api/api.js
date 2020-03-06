@@ -83,6 +83,6 @@ export const articleApi = {
   init: query => request('/article/index/init', query, 'POST', true),
   test: query => request('/article/index/test', query, 'POST', true),
   create: query => request('/article/create', query, 'POST', true),
-  getArticle: query => request('/article/detail', { aid: query }, 'get', true)
+  getArticle: query => request('/article/detail', { path: query }, 'get', true)
   // getArticle: query => request('/article/detail/', query , 'get', true),
 }

@@ -27,7 +27,7 @@ export default {
     // })
     this.article = this.$route.params
     console.log(this.article)
-    articleApi.getArticle(this.article.aid).then(re => {
+    articleApi.getArticle(this.article.path).then(re => {
       this.detail = re.data
     })
   }
